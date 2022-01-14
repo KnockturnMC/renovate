@@ -437,6 +437,21 @@ const matcherConfigs: SyntaxMatchConfig[] = [
     handler: processCustomRegistryUrl,
   },
   {
+    // maven("https://repository.mycompany.com/m2/repository") {
+    matchers: [
+      {
+        matchType: TokenType.Word,
+        matchValue: 'maven',
+      },
+      { matchType: TokenType.LeftParen },
+      { matchType: TokenType.String, tokenMapKey: 'registryUrl' },
+      { matchType: TokenType.RightParen },
+      { matchType: TokenType.LeftBrace },
+      endOfInstruction,
+    ],
+    handler: processCustomRegistryUrl,
+  },
+  {
     // maven { url = uri("https://maven.springframework.org/release") }
     matchers: [
       {

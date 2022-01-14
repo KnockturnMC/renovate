@@ -98,7 +98,7 @@ async function gotRoutine<T>(
 
   // Cheat the TS compiler using `as` to pick a specific overload.
   // Otherwise it doesn't typecheck.
-  const resp = await got<T>(url, { ...options, hooks } as GotJSONOptions);
+  const resp = await got<T>(url, { ...options, hooks, dnsLookupIpVersion: "ipv4" } as GotJSONOptions);
   const duration =
     resp.timings.phases.total ?? /* istanbul ignore next: can't be tested */ 0;
 
