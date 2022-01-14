@@ -127,12 +127,5 @@ export function filterVersions(
 
   // if current is unstable then allow unstable in the current major only
   // Allow unstable only in current major
-  return filteredVersions.filter(
-    (v) =>
-      isVersionStable(v.version) ||
-      (versioning.getMajor(v.version) === versioning.getMajor(currentVersion) &&
-        versioning.getMinor(v.version) ===
-          versioning.getMinor(currentVersion) &&
-        versioning.getPatch(v.version) === versioning.getPatch(currentVersion))
-  );
+  return filteredVersions;
 }
